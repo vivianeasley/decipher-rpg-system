@@ -1,0 +1,73 @@
+@import '_reset.scss';
+
+body {
+  font-family: 'Eagle Lake', cursive;
+
+}
+
+.inputTranslater {
+  line-height: 1.2;
+  font-size: 20px;
+  padding: 5px 10px;
+  width: 100%;
+
+}
+
+.guess {
+  line-height: 1.2;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-bottom: 1px solid grey;
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.traslated {
+  line-height: 1.2;
+  font-size: 20px;
+  padding: 5px 10px;
+  min-height: 30px;
+}
+
+.translateWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.inputKey,
+.inputPlayers {
+  font-size: 12px;
+  padding: 3px 0 2px 5px;
+}
+
+.inputPlayers {
+  width: 40px;
+}
+
+.generateText,
+.saveText {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 5px 4px 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.saveText:hover,
+.generateText:hover {
+  color: white;
+  background-color: black;
+}
+
+.saveText {
+display: none;
+
+}
+
+canvas {
+  display: block !important;
+}

@@ -1,0 +1,48 @@
+{
+  "name": "static-base",
+  "version": "1.3.0",
+  "description": "A simple base for building static websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "eleventy:default": "npx eleventy",
+    "eleventy:watch": "npx eleventy --watch",
+    "styles:prod": "node-sass src/styles/ --output dist/styles/ && postcss ./dist/styles/*.css --replace",
+    "styles:dev": "node-sass src/styles/ --output dist/styles/ --source-map true --source-map-contents true && postcss ./dist/styles/*.css --replace",
+    "scripts:prod": "esbuild --bundle src/scripts/*.*s --outdir=dist/scripts --minify",
+    "scripts:dev": "esbuild --bundle src/scripts/*.*s --outdir=dist/scripts --minify --sourcemap",
+    "serve": "light-server -c .lightserverrc",
+    "dev": "npm-run-all clean styles:dev scripts:dev eleventy:default --parallel eleventy:watch serve --print-label",
+    "dev:debug": "DEBUG=* npm run dev",
+    "seo:prod": "node site-utils/init-utils.js",
+    "build": "run-s clean styles:prod scripts:prod eleventy:default seo:prod --print-label"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertpage/static-base.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robertpage/static-base"
+  },
+  "devDependencies": {
+    "esbuild": "^0.2.11",
+    "light-server": "2.6.4"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.9.0",
+    "acorn": "^7.0.0",
+    "atomically": "^1.3.2",
+    "autoprefixer": "^9.6.5",
+    "canvas-txt": "^2.0.10",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "fast-glob": "^3.2.4",
+    "jspdf": "^2.1.0",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3"
+  }
+}
