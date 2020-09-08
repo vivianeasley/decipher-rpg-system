@@ -6,19 +6,24 @@ import {
     translationCanvasGenerator
  } from "./modules/canvas-generators";
 
+ const downloadPDFNode = document.querySelector(".saveText");
+ const playersInputNode = document.querySelector(".inputPlayers");
+ const spinnerNode = document.querySelector(".spinner");
+
 window.onload = function() {
     init();
 };
 async function init (players, playerTextLength) {
-    const downloadPDFNode = document.querySelector(".saveText");
+
+    playersInputNode.addEventListener("input", updatePlayersNumber, false);
     downloadPDFNode.addEventListener("click", buildPDF, false);
 
     const dataUrlImageArray = [];
-    const numberOfPLayers = getNumberOfPlayers();
+    const numberOfPLayers = getNumberOfPlayers(playersInputNode);
     if (!numberOfPLayers) return;
 
     // Generate language
-    const languageObject = await languageGenerator(8, 50);
+    const languageObject = await languageGenerator(numberOfPLayers, 50);
 
     // Generate GM intro dataURL images
     const gmIntroCanvasNode = await gmStoryCanvasGenerator();
@@ -40,6 +45,7 @@ async function init (players, playerTextLength) {
     }
 
     downloadPDFNode.style.display = "inline-block";
+    spinnerNode.style.display = "none";
 
     function buildPDF () {
         var pdf = new jsPDF('p', 'pt');
@@ -50,15 +56,14 @@ async function init (players, playerTextLength) {
             pdf.addImage(dataUrlImageArray[i], 'JPG', 0, 0, 612, 791);
         }
 
-        pdf.save('cipher-rpg.pdf');
+        pdf.save('decipher-rpg.pdf');
 
     }
 
 }
 
 
-function getNumberOfPlayers () {
-    const playersInputNode = document.querySelector(".inputPlayers");
+function getNumberOfPlayers (playersInputNode) {
     if (isNaN(playersInputNode.value) === true) {
         alert("Number of players must be a number!");
         return;
@@ -75,6 +80,15 @@ function getNumberOfPlayers () {
     }
 
     return playersInputNode.value;
+
+}
+
+function updatePlayersNumber (event) {
+    downloadPDFNode.style.display = "none";
+    spinnerNode.style.display = "inline-block";
+    setTimeout(() => {
+        init();
+    }, 3000);
 
 }
 

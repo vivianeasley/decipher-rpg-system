@@ -2,7 +2,11 @@
 
 body {
   font-family: 'Eagle Lake', cursive;
+}
 
+img {
+  width: 100%;
+  height: auto;
 }
 
 .inputTranslater {
@@ -70,4 +74,10 @@ display: none;
 
 canvas {
   display: block !important;
+}
+
+.spinner {
+  vertical-align: middle;
+  display: none;
+  max-width: 25px;
 }
