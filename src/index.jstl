@@ -6,9 +6,9 @@
         <button class="saveText">Download PDF</button><img class="spinner" style="vertical-align: middle;" src="./images/spinner.svg" alt="Just a spinner animation">
     </div>
     <div>
-        <h2>Wizards Mastery</h2>
+        <h2>The Decipher Role Playing System</h2>
 
-        <p style="line-height:1.3;letter-spacing: 1px;">This site is a simple role-playing game system. The game uses little to no dice and randomness is replaced by players combining the words in ancient untranslated wizards text to progress the story. To play you need to generate a PDF, which can be done here by clicking the create button and then save to download a completely new generated language and player sheets. The players will randomly begin combining words, which the Game Master will translate and then tell everyone the outcome. Players are not allowed to use the translator page during the game and, through trial and error, must decode the language to solve puzzles, progress through the story, and succeed.</p>
+        <p class="paragraph">This site is a simple role-playing game system. The game uses little to no dice and randomness is replaced by players combining the words in ancient untranslated wizards text to progress the story. To play you need to generate a PDF, which can be done here by clicking the create button and then save to download a completely new generated language and player sheets. The players will randomly begin combining words, which the Game Master will translate and then tell everyone the outcome. Players are not allowed to use the translator page during the game and, through trial and error, must decode the language to solve puzzles, progress through the story, and succeed.</p>
     </div>
     <h3>Game Master's Translation Sheet Example</h3>
     <div>
