@@ -84,8 +84,6 @@ export const translationCanvasGenerator = async function translationCanvasGenera
             const pagesNodesArray = [];
             const columns = [];
             let tmpArray = [];
-            let page = 0;
-            let column = 1;
 
             for (let i = 0; i < translationArr.length; i++) {
                 if ((i % 40) === 0 && i !== 0) {
@@ -97,6 +95,8 @@ export const translationCanvasGenerator = async function translationCanvasGenera
                 tmpArray.push(translationArr[i]);
 
             }
+
+            columns.push(tmpArray)
 
             for (let j = 0; j < columns.length; j++) {
                 //Create Canvas

@@ -13,7 +13,7 @@ import {
 window.onload = function() {
     init();
 };
-async function init (players, playerTextLength) {
+async function init () {
 
     playersInputNode.addEventListener("input", updatePlayersNumber, false);
     downloadPDFNode.addEventListener("click", buildPDF, false);
